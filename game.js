@@ -7,7 +7,6 @@ let level = 0;
 $('.btn').on('click', function(e) {
   let userChosenColor = e.target.id;
   userClickedPattern.push(userChosenColor);
-  console.log(userClickedPattern);
   playSound(userChosenColor);
   animatePress(userChosenColor);
   checkAnswer(userClickedPattern, gamePattern);
@@ -28,7 +27,6 @@ function nextSequence() {
   let randomChosenColor = buttonColors[randomNumber];
   playSound(randomChosenColor);
   gamePattern.push(randomChosenColor);
-  console.log(gamePattern);
   $(`#${randomChosenColor}`)
     .fadeOut(100)
     .fadeIn(100);
@@ -68,7 +66,7 @@ function animatePress(currentColor) {
 }
 function checkAnswer(arr1, arr2) {
   if (userClickedPattern[level - 1] === gamePattern[level - 1]) {
-    console.log('Continued');
+   
   } else if (arr1.length !== arr2.length) {
     console.log(`Let 'em pick`);
   }
@@ -87,7 +85,6 @@ function checkAnswer(arr1, arr2) {
     }
   }
   if (arr1.length === arr2.length) {
-    console.log('you good');
     setTimeout(function() {
       nextSequence();
     }, 1000);
